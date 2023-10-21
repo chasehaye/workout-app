@@ -3,10 +3,11 @@ import { Routes, Route } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import './App.css';
 import AuthPage from '../AuthPage/AuthPage';
-import NewOrderPage from '../NewOrderPage/NewOrderPage';
-import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage';
+import NewRoutineCyclePage from '../NewRoutineCyclePage/NewRoutineCyclePage';
+import RoutineCycleIndexPage from '../RoutineCycleIndexPage/RoutineCycleIndexPage';
+import HomePage from '../HomePage/HomePage';
 import NavBar from '../../components/NavBar/NavBar';
-import SignUpForm from '../../components/SignUpForm/SignUpForm';
+import RoutineCycleDetailPage from '../RoutineCycleDetailPage/RoutineCycleDetailPage';
 
 
 export default function App() {
@@ -17,10 +18,12 @@ export default function App() {
     <main className="App">
     { user ?
       <>
-      <NavBar setUser ={setUser} user = {user}/>
+      <NavBar setUser ={setUser} user = {user}></NavBar>
       <Routes>
-        <Route path="/orders/new" element={<NewOrderPage />} />
-        <Route path="/orders" element={<OrderHistoryPage />} />
+        <Route path="/" element={<HomePage/>} />
+        <Route path="/routineCycles/new" element={<NewRoutineCyclePage />} />
+        <Route path="/routineCycles" element={<RoutineCycleIndexPage />} />
+        <Route path="/routineCycles/:routineCycleId" element={<RoutineCycleDetailPage />} />
       </Routes>
       </>
       :
