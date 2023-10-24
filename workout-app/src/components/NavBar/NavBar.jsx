@@ -17,6 +17,8 @@ export default function NavBar({setUser, user}){
         <span>{user.name}</span>
         &nbsp;| &nbsp;
         <Link class='nav-link' to='' onClick={handleLogOut}>Log Out</Link>
+        &nbsp;|  &nbsp;
+        <Link class='nav-link' to='/routines'>testing ground routine</Link>
       </nav>
     );
     
