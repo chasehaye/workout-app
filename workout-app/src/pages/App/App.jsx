@@ -8,6 +8,8 @@ import RoutineCycleIndexPage from '../RoutineCycleIndexPage/RoutineCycleIndexPag
 import HomePage from '../HomePage/HomePage';
 import NavBar from '../../components/NavBar/NavBar';
 import RoutineCycleDetailPage from '../RoutineCycleDetailPage/RoutineCycleDetailPage';
+
+import NewRoutinePage from '../NewRoutinePage/NewRoutinePage';
 import RoutineIndexPage from '../RoutineIndexPage/RoutineIndexPage'
 
 
@@ -27,7 +29,7 @@ export default function App() {
         <Route path="/routineCycles/:routineCycleId" element={<RoutineCycleDetailPage />} />
 
         <Route path="/routines" element={<RoutineIndexPage/>} />
-
+        <Route path="/routines/new" element={<NewRoutinePage />} />
       </Routes>
       </>
       :

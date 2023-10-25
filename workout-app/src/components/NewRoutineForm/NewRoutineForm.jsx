@@ -1,8 +1,8 @@
-import { useRef, useState } from 'react';
-import { createRoutineCycleRequest } from '../../utilities/routineCycles-api';
-import { useNavigate, useParams } from "react-router-dom";
+import { useRef, useState} from 'react';
+import { createRoutineRequest } from '../../utilities/routines-api';
+import { useNavigate, useParams } from 'react-router-dom';
 
-export default function NewRoutineCycleForm(){
+export default function NewRoutineForm(){
     const navigate = useNavigate();
     const nameRef = useRef('')
     const descriptionRef = useRef('')
@@ -11,13 +11,13 @@ export default function NewRoutineCycleForm(){
     async function handleSubmit(e){
         e.preventDefault()
         setError('')
-        const newRoutineCycle = {
+        const newRoutine = {
             name: nameRef.current.value,
             description: descriptionRef.current.value,
         }
         try{
-            const newRoutineCycleResponse = await createRoutineCycleRequest(newRoutineCycle)
-            navigate('/routineCycles')
+            const newRoutineResponse = await createRoutineRequest(newRoutine)
+            navigate('/routines')
         }catch(err){
             setError(err)
             console.log(err)
@@ -33,7 +33,7 @@ export default function NewRoutineCycleForm(){
                 <label htmlFor="description">Description</label>
                 <input type="text" id="description" ref={descriptionRef}/>
 
-                <button>Create RoutineCycle</button>
+                <button>Create a Routine day</button>
 
             </form>
         </>

@@ -7,6 +7,7 @@ export default function NavBar({setUser, user}){
     setUser(null);
   }
     return(
+      // core data type
         <nav>
         <Link class='nav-link' to='/routineCycles'>routine cycle List</Link>
         &nbsp; | &nbsp;
@@ -18,7 +19,12 @@ export default function NavBar({setUser, user}){
         &nbsp;| &nbsp;
         <Link class='nav-link' to='' onClick={handleLogOut}>Log Out</Link>
         &nbsp;|  &nbsp;
-        <Link class='nav-link' to='/routines'>testing ground routine</Link>
+
+        {/* secondary data type */}
+        <Link class='nav-link' to='/routines'>routine per day</Link>
+        &nbsp; | &nbsp;
+        <Link class='nav-link' to='/routines/new'>Add a Custom routine day</Link>
+
       </nav>
     );
     

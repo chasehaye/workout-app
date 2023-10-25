@@ -1,9 +1,11 @@
+require('dotenv').config();
+require('./config/database');
 const express = require('express');
 const path = require('path');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
-require('dotenv').config();
-require('./config/database');
+const checkToken = require('./config/checkToken');
+
 
 const app = express();
 
@@ -11,10 +13,12 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, 'build')));
+app.use(checkToken)
 app.use(require('./config/checkToken'));
+
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/routineCycles', require('./routes/api/routineCycles'));
-app.use('/api/routines', require('./routes/api/routines'))
+app.use('/api/routines', require('./routes/api/routines'));
 
 
 
