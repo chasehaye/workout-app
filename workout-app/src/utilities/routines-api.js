@@ -6,7 +6,17 @@ export async function routinesIndexRequest(){
 }
 
 export async function createRoutineRequest(routineData){
-    console.log(BASE_URL)
-    console.log(routineData)
     return sendRequest(BASE_URL, "POST", routineData)
+}
+
+export async function getRoutineRequest(routineId){
+    return sendRequest(`${BASE_URL}/${routineId}`)
+}
+
+export async function deleteRoutineRequest(routineId){
+    return sendRequest(`${BASE_URL}/${routineId}`, "DELETE")
+}
+
+export async function updateRoutineRequest(routineId, routineData){
+    return sendRequest(`${BASE_URL}/${routineId}`, "PUT", routineData)
 }

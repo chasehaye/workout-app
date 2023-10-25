@@ -3,15 +3,17 @@ import { Routes, Route } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import './App.css';
 import AuthPage from '../AuthPage/AuthPage';
-import NewRoutineCyclePage from '../NewRoutineCyclePage/NewRoutineCyclePage';
-import RoutineCycleIndexPage from '../RoutineCycleIndexPage/RoutineCycleIndexPage';
 import HomePage from '../HomePage/HomePage';
 import NavBar from '../../components/NavBar/NavBar';
+
+
+import NewRoutineCyclePage from '../NewRoutineCyclePage/NewRoutineCyclePage';
+import RoutineCycleIndexPage from '../RoutineCycleIndexPage/RoutineCycleIndexPage';
 import RoutineCycleDetailPage from '../RoutineCycleDetailPage/RoutineCycleDetailPage';
 
 import NewRoutinePage from '../NewRoutinePage/NewRoutinePage';
-import RoutineIndexPage from '../RoutineIndexPage/RoutineIndexPage'
-
+import RoutineIndexPage from '../RoutineIndexPage/RoutineIndexPage';
+import RoutineDetailPage from '../RoutineDetailPage/RoutineDetailPage';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -30,6 +32,8 @@ export default function App() {
 
         <Route path="/routines" element={<RoutineIndexPage/>} />
         <Route path="/routines/new" element={<NewRoutinePage />} />
+        <Route path="/routines/:routineId" element={<RoutineDetailPage />} />
+
       </Routes>
       </>
       :
