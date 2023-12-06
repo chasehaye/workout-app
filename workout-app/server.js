@@ -17,8 +17,8 @@ app.use(checkToken)
 app.use(require('./config/checkToken'));
 
 app.use('/api/users', require('./routes/api/users'));
-app.use('/api/routineCycles', require('./routes/api/routineCycles'));
 app.use('/api/routines', require('./routes/api/routines'));
+app.use('/api/foods', require('./routes/api/foods'));
 
 
 
